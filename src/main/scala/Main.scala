@@ -19,25 +19,36 @@ object Main extends CommandApp(
     }
 )
 
-trait Parser[Cst]:
+trait Parser:
+  type Cst
   def parse: Source => Cst
 
-trait AstBuilder[Cst, Ast]:
+trait AstBuilder:
+  type Cst
+  type Ast
   def buildAst: Cst => Ast
 
-trait Evaluator[Ast, Env, Result]:
+trait Evaluator:
+  type Ast
+  type Env
+  type Result
   def evaluate: Env => Ast => (Env, Result)
 
-trait CodeGenerator[Ast]:
+trait CodeGenerator:
+  type Ast
   def generateCode: OutputStream => Ast => Unit
 
-trait Interpreter[Cst, Ast, Env, Result] extends Parser[Cst] with AstBuilder[Cst, Ast] with Evaluator[Ast, Env, Result]:
+trait Interpreter extends Parser, AstBuilder, Evaluator:
   def interpret(input: Source, env: Env): (Env, Result) =
     val cst = parse(input)
     val ast = buildAst(cst)
     evaluate(env)(ast)
 
-object SimpleInterpreter extends Interpreter[String, Int, Unit, Int]:
+object SimpleInterpreter extends Interpreter:
+  type Cst = String
+  type Ast = Int
+  type Env = Unit
+  type Result = Int
   override val parse: Source => String = _.getLines().next().trim.nn
   override val buildAst: String => Int = _.toInt
   override val evaluate: Unit => Int => (Unit, Int) = _ => i => ((), i)
