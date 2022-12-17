@@ -1,4 +1,4 @@
-package edu.luc.cs.laufer.cs382.cf
+package edu.luc.cs.laufer.cs382.ctk
 
 import org.scalatest.funsuite.AnyFunSuite
 

@@ -1,4 +1,4 @@
-A simple compiler framework under construction.
+A simple compiler toolkit under construction.
 
 To run the tests:
 
