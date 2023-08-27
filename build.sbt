@@ -8,9 +8,9 @@ scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Yexplicit-null
 
 libraryDependencies ++= Seq(
   "com.monovore"  %% "decline"       % "2.4.1",
-  "org.typelevel" %% "cats-parse"    % "0.3.8",
-  "org.json4s"    %% "json4s-native" % "4.1.0-M2",
-  "org.scalatest" %% "scalatest"     % "3.2.14" % Test
+  "org.typelevel" %% "cats-parse"    % "0.3.10",
+  "org.json4s"    %% "json4s-native" % "4.1.0-M3",
+  "org.scalatest" %% "scalatest"     % "3.2.16" % Test
 )
 
 enablePlugins(JavaAppPackaging)
