@@ -4,7 +4,7 @@ version := "0.1"
 
 scalaVersion := "3.3.0"
 
-scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Yexplicit-nulls", "-Ysafe-init", "-language:strictEquality")
+scalacOptions += "@.scalacOptions.txt"
 
 libraryDependencies ++= Seq(
   "com.monovore"  %% "decline"       % "2.4.1",
