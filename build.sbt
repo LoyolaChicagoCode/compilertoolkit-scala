@@ -2,10 +2,6 @@ name := "compilertoolkit-scala"
 
 version := "0.1"
 
-scalaVersion := "3.3.3"
-
-scalacOptions += "@.scalacOptions.txt"
-
 libraryDependencies ++= Seq(
   "com.monovore"  %% "decline"       % "2.4.1",
   "org.typelevel" %% "cats-parse"    % "1.0.0",
